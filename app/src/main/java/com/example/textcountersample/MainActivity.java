@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import static com.example.textcountersample.utils.ElementsCalculator.getCharsCount;
+import static com.example.textcountersample.utils.ElementsCalculator.getWordsCount;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
         String userInputText = edUserInput.getText().toString();
 
         String selection = this.ddSelection.getSelectedItem().toString();
-        if(selection.equalsIgnoreCase("Chars")){
+        if(selection.equalsIgnoreCase("Chars")) {
             int count = getCharsCount(userInputText);
+            tvOutput.setText(String.valueOf(count));
+        } else if(selection.equalsIgnoreCase("Words")) {
+            int count = getWordsCount(userInputText);
             tvOutput.setText(String.valueOf(count));
         }
     }
